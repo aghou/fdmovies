@@ -5,7 +5,7 @@ import fastifySwagger from '@fastify/swagger';
  * Add support for API Documentation with OpenAPI Specs
  */
 export default fp(async (fastify) => {
-  fastify.register(fastifySwagger, <any>{
+  fastify.register(fastifySwagger, {
     openapi: {
       info: {
         title: 'Factory Digital Movies Backend API',
@@ -13,6 +13,5 @@ export default fp(async (fastify) => {
         version: '0.0.1',
       },
     },
-  })
-})
-
+  });
+});

@@ -1,22 +1,25 @@
-import { FastifyPluginAsync } from 'fastify'
+import { FastifyPluginAsync } from 'fastify';
 
-const root: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
+const root: FastifyPluginAsync = async (fastify): Promise<void> => {
   /**
    * Helth check endpoint
    */
   fastify.get('/health', async function (request, reply) {
-    return 'OK'
-  })
+    reply.send('OK');
+  });
 
   /**
    * OpenAPI endpoint
    */
-  fastify.get('/openapi', {
-    schema: { hide: true } as any
+  fastify.get(
+    '/openapi',
+    {
+      schema: { hide: true },
     },
     async function (request, reply) {
-    return request.server.swagger();
-  })
-}
+      reply.send(request.server.swagger());
+    },
+  );
+};
 
 export default root;
