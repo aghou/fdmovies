@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+    "speedtest": "npm run build:ts && tsc -p test/tsconfig.json && tap --no-coverage --ts \"test/**/*.test.ts\"",
     "start": "npm run build:ts && fastify start -l info dist/app.js",
     "build:ts": "tsc",
     "watch:ts": "tsc -w",
@@ -19,6 +20,7 @@
   "license": "ISC",
   "dependencies": {
     "@fastify/autoload": "^5.0.0",
+    "@fastify/mongodb": "^6.2.0",
     "@fastify/sensible": "^5.0.0",
     "@fastify/swagger": "^8.3.1",
     "fastify": "^4.0.0",
