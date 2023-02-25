@@ -7,6 +7,6 @@ test('Swagger plugin', async (t) => {
   void fastify.register(Swagger);
   await fastify.ready();
 
-  t.isA(fastify.swagger, 'function', 'Plugin registered');
-  t.isA(fastify.swagger(), 'object', 'swagger() return an object');
+  t.type(fastify.swagger, 'function', 'Plugin registered');
+  t.type(fastify.swagger(), 'object', 'swagger() return an object');
 });

@@ -4,11 +4,17 @@ import fastifyMongo from '@fastify/mongodb';
 /**
  * Add support for Mongodb
  */
-export const MongoDB = fp(async (fastify) => {
-  fastify.register(fastifyMongo, {
-    url: getMongodbURL(),
-    database: process.env.MONGO_DB || 'fdmovies',
-  });
+export const MongoDB = fp(async (fastify, opts = {}) => {
+  fastify.register(
+    fastifyMongo,
+    Object.assign(
+      {
+        url: getMongodbURL(),
+        database: process.env.MONGO_DB || 'fdmovies',
+      },
+      opts,
+    ),
+  );
 });
 
 /**
