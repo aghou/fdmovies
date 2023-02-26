@@ -49,3 +49,33 @@ export const moviesSearchHandler = async (request: FastifyRequest, reply: Fastif
 export const videoTrailerHandler = async (request: FastifyRequest, reply: FastifyReply) => {
   return request.server.movie.service?.getVideoTrailer();
 };
+
+/**
+ * Get favorites list
+ *
+ * @param {FastifyRequest} request
+ * @param {FastifyReply} reply
+ */
+export const favoritesListHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+  return request.server.movie.service?.getFavoritesList();
+};
+
+/**
+ * Add to favorites
+ *
+ * @param {FastifyRequest} request
+ * @param {FastifyReply} reply
+ */
+export const addToFavoritesHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+  return request.server.movie.service?.addToFavorites();
+};
+
+/**
+ * Remove from favorites
+ *
+ * @param {FastifyRequest} request
+ * @param {FastifyReply} reply
+ */
+export const removeFromFavoritesHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+  return request.server.movie.service?.removeFromFavorites();
+};

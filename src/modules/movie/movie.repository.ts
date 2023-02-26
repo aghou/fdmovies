@@ -1,7 +1,9 @@
-import { BaseRepository } from '../../libs/base.repository';
+import { TheMovieDbRepository } from '../../libs/themoviedb.repository';
 
 /**
  * MovieRepository class
  * @author Zahir Saad Bouzid<zahirnet@gmail.com>
  */
-export class MovieRepository extends BaseRepository {}
+export class MovieRepository extends TheMovieDbRepository {
+  resource = 'movie';
+}

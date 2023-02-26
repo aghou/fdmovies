@@ -1,3 +1,4 @@
+import { JwtPayload } from 'jsonwebtoken';
 import { ObjectId } from 'mongodb';
 
 /**
@@ -25,4 +26,14 @@ export interface SigninInterface {
 export interface UserInterface extends SignupInterface {
   _id: ObjectId;
   createdAt: Date;
+}
+
+/**
+ * User identity
+ */
+export interface UserIdentity extends JwtPayload {
+  first_name: string;
+  last_name: string;
+  email: string;
+  username: string;
 }

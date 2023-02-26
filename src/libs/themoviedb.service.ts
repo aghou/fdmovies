@@ -1,6 +1,7 @@
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { BaseService } from './base.service';
 import { getPagination } from './pagination.helper';
+import { TheMovieDbRepository } from './themoviedb.repository';
 
 /**
  * TheMovieDbService class
@@ -78,10 +79,45 @@ export abstract class TheMovieDbService extends BaseService {
   }
 
   /**
+   * Get resource favorite list
+   * @return {Promise<any>}
+   */
+  async getFavoritesList(): Promise<any> {
+    return this.getRepository().getFavorites();
+  }
+
+  /**
+   * Add item to favorite
+   */
+  addToFavorites() {
+    if (!this.getRepository().addFavorites()) {
+      return this.reply.internalServerError();
+    }
+    this.reply.code(201);
+  }
+
+  /**
+   * Remove item from favorite
+   */
+  removeFromFavorites() {
+    if (!this.getRepository().removeFavorites()) {
+      return this.reply.internalServerError();
+    }
+  }
+
+  /**
    * Get themoviedb http cli
    * @return {AxiosInstance}
    */
   getHttpClient(): AxiosInstance {
     return this.request.server.themoviedb;
+  }
+
+  /**
+   * Get resource Repository instance
+   * @return {TheMovieDbRepository}
+   */
+  getRepository(): TheMovieDbRepository {
+    return (this.request.server as any)[this.resource].repo as TheMovieDbRepository;
   }
 }
