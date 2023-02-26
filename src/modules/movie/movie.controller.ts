@@ -7,7 +7,7 @@ import { FastifyReply, FastifyRequest } from 'fastify';
  * @param {FastifyReply} reply
  */
 export const moviesListHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.movie.service?.getMoviesList();
+  return request.server.movie.service?.getList();
 };
 
 /**
@@ -17,7 +17,7 @@ export const moviesListHandler = async (request: FastifyRequest, reply: FastifyR
  * @param {FastifyReply} reply
  */
 export const movieItemHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.movie.service?.getMovieItem();
+  return request.server.movie.service?.getItem();
 };
 
 /**
@@ -27,7 +27,7 @@ export const movieItemHandler = async (request: FastifyRequest, reply: FastifyRe
  * @param {FastifyReply} reply
  */
 export const topMoviesListHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.movie.service?.getTopMoviesList();
+  return request.server.movie.service?.getTopList();
 };
 
 /**

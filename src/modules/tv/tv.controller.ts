@@ -7,7 +7,7 @@ import { FastifyReply, FastifyRequest } from 'fastify';
  * @param {FastifyReply} reply
  */
 export const tvListHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.tv.service?.getTvList();
+  return request.server.tv.service?.getList();
 };
 
 /**
@@ -17,7 +17,7 @@ export const tvListHandler = async (request: FastifyRequest, reply: FastifyReply
  * @param {FastifyReply} reply
  */
 export const tvItemHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.tv.service?.getTvItem();
+  return request.server.tv.service?.getItem();
 };
 
 /**
@@ -27,7 +27,7 @@ export const tvItemHandler = async (request: FastifyRequest, reply: FastifyReply
  * @param {FastifyReply} reply
  */
 export const topTvListHandler = async (request: FastifyRequest, reply: FastifyReply) => {
-  return request.server.tv.service?.getTopTvList();
+  return request.server.tv.service?.getTopList();
 };
 
 /**
