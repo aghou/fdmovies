@@ -1,22 +1,13 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
-import { Db, Document, InsertOneResult, WithId } from 'mongodb';
+import { Document, InsertOneResult, WithId } from 'mongodb';
 import { UserInterface } from './user.interfaces';
 import * as bcrypt from 'bcrypt';
+import { BaseRepository } from '../../libs/base.repository';
 
 /**
  * UserRepository class
  * @author Zahir Saad Bouzid<zahirnet@gmail.com>
  */
-export class UserRepository {
-  request: FastifyRequest;
-  reply: FastifyReply;
-  db: Db | undefined;
-  constructor(request: FastifyRequest, reply: FastifyReply) {
-    this.request = request;
-    this.reply = reply;
-    this.db = request.server.mongo.db;
-  }
-
+export class UserRepository extends BaseRepository {
   /**
    * Get user document identified by username
    * @param {string} username

@@ -10,9 +10,6 @@ const user: FastifyPluginAsync = async (fastify, opts): Promise<void> => {
   fastify.register(UserPlugin);
   fastify.post('/signin', SigninOps, signInHandler);
   fastify.post('/signup', SignupOps, signUpHandler);
-  fastify.get('/doc', async function (request, reply) {
-    return request.server.swagger();
-  });
 };
 
 export default user;

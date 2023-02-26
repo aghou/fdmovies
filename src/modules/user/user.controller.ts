@@ -8,7 +8,6 @@ import { FastifyReply, FastifyRequest } from 'fastify';
  */
 export const signInHandler = async (request: FastifyRequest, reply: FastifyReply) => {
   return request.server.user.service?.login();
-  //return "tokk";
 };
 
 /**
