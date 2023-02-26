@@ -39,3 +39,13 @@ export const topTvListHandler = async (request: FastifyRequest, reply: FastifyRe
 export const videoTrailerHandler = async (request: FastifyRequest, reply: FastifyReply) => {
   return request.server.tv.service?.getVideoTrailer();
 };
+
+/**
+ * Search Tv (Series TV)
+ *
+ * @param {FastifyRequest} request
+ * @param {FastifyReply} reply
+ */
+export const tvSearchHandler = async (request: FastifyRequest, reply: FastifyReply) => {
+  return request.server.tv.service?.getSearch();
+};

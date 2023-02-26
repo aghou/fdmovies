@@ -1,12 +1,6 @@
 import { FastifyPluginAsync } from 'fastify';
-import { searchHandler } from '../modules/movie/movie.controller';
 
 const root: FastifyPluginAsync = async (fastify): Promise<void> => {
-  /**
-   * Movies and Tv search endpoint
-   */
-  fastify.get('/search', searchHandler);
-
   /**
    * Helth check endpoint
    */

@@ -1,3 +1,4 @@
+import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { BaseService } from '../../libs/base.service';
 import { TvRepository } from './tv.repository';
 
@@ -39,10 +40,35 @@ export class TvService extends BaseService {
   }
 
   /**
+   * Get Search Tv
+   * @return {Promise<Array<any>>}
+   */
+  async getSearch(): Promise<Array<any>> {
+    const config = {
+      params: {
+        page: (this.request.query as any).page || 1,
+        query: (this.request.query as any).query,
+      },
+      responseType: 'json',
+    } as AxiosRequestConfig;
+    return this.getHttpClient()
+      .get(`search/tv`, config)
+      .then((response) => response.data.results);
+  }
+
+  /**
    * Get TvRepository instance
    * @return {TvRepository}
    */
   getRepository(): TvRepository {
     return this.request.server.tv.repo as TvRepository;
+  }
+
+  /**
+   * Get themoviedb http cli
+   * @return {AxiosInstance}
+   */
+  getHttpClient(): AxiosInstance {
+    return this.request.server.themoviedb;
   }
 }
